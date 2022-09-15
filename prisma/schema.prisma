@@ -14,7 +14,7 @@ datasource db {
 model metawhitelist {
   id Int @id @default(autoincrement()) 
   email String?
-  sol_address String
+  sol_address String @unique
   nft_amount Int?
   nationality String?
   discord_username String?
