@@ -1,0 +1,46 @@
+{
+  "name": "meta-mint-back",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon --exec babel-node src/server",
+    "migrate": "npx prisma migrate dev --preview-feature",
+    "studio": "npx prisma studio",
+    "start": "node build/server",
+    "build": "babel src --out-dir build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ksdf7235/blog-back.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ksdf7235/blog-back/issues"
+  },
+  "homepage": "https://github.com/ksdf7235/blog-back#readme",
+  "dependencies": {
+    "@babel/cli": "^7.17.10",
+    "@babel/runtime": "^7.18.3",
+    "@graphql-tools/load-files": "^6.5.3",
+    "@graphql-tools/merge": "^8.2.13",
+    "@graphql-tools/schema": "^8.3.13",
+    "@prisma/client": "3.14.0",
+    "apollo-server": "^2.25.2",
+    "apollo-server-express": "2.19",
+    "dayjs": "^1.11.2",
+    "dotenv": "^16.0.1",
+    "express": "^4.18.1",
+    "graphql": "^15.4.0",
+    "graphql-tools": "^7.0.2"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.17.9",
+    "@babel/node": "^7.16.8",
+    "@babel/plugin-transform-runtime": "^7.18.0",
+    "@babel/preset-env": "^7.16.11",
+    "nodemon": "^2.0.15",
+    "prisma": "^3.14.0"
+  },
+  "description": ""
+}

@@ -1,0 +1,2 @@
+-- AlterTable
+ALTER TABLE "Sungju" ALTER COLUMN "exitedDate" SET DEFAULT CURRENT_TIMESTAMP;
