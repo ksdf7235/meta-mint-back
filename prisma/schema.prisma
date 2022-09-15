@@ -11,16 +11,12 @@ datasource db {
 }
 
 
-model seongju {
+model metawhitelist {
   id Int @id @default(autoincrement()) 
-  url String    
-  hostNameEng String
-  hostNameKr String
-  participantNameKr String @unique
-  participantNameEng String
-  createdDateMil DateTime  @default(now())
-  createdDate DateTime  @default(now())
-  enteredDate DateTime  @default(now())
-  exitedDate DateTime  @default(now())
-
+  email String?
+  sol_address String
+  nft_amount Int?
+  nationality String?
+  discord_username String?
+  twitter_username String?
 }

@@ -1,3 +1,0 @@
--- AlterTable
-ALTER TABLE "Sungju" ALTER COLUMN "enteredDate" DROP DEFAULT,
-ALTER COLUMN "exitedDate" DROP DEFAULT;
