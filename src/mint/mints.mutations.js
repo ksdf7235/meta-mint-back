@@ -59,23 +59,32 @@ export default {
       };
     },
     updateWhitelistNft_Amount: async (_, { sol_address }) => {
-      const data = await client.metawhitelist.findMany({
+      const data = await client.metawhitelist.findUnique({
         where: { sol_address },
       });
-      const nft = data[0].nft_amount - 1;
-      const idx = data[0].id;
+      console.log(data.nft_amount);
 
-      await client.metawhitelist.update({
-        where: {
-          id: idx,
-        },
-        data: {
-          nft_amount: nft,
-        },
-      });
-      return {
-        ok: true,
-      };
+      if (data.nft_amount >= 0) {
+        const nft = data.nft_amount - 1;
+        const idx = data.id;
+
+        await client.metawhitelist.update({
+          where: {
+            id: idx,
+          },
+          data: {
+            nft_amount: nft,
+          },
+        });
+        return {
+          ok: true,
+        };
+      } else {
+        return {
+          ok: false,
+          error: "it can`t be",
+        };
+      }
     },
   },
 };

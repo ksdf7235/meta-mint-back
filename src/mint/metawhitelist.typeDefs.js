@@ -12,7 +12,8 @@ export default gql`
   }
   type Query {
     whitelists: [metawhitelist]
-    whitelist(sol_address: String!): [metawhitelist]
+    whitelist(sol_address: String!): metawhitelist
+    verifywhitelist(sol_address: String!): MutationResponse
   }
   type Mutation {
     updateWhitelist(
