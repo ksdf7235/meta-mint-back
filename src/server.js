@@ -8,8 +8,8 @@ import http from "http";
 
 const configurations = {
   // Note: You may need sudo to run on port 443
-  production: { ssl: true, port: 4000, hostname: "meet.sj.go.kr" },
-  testserver: { ssl: true, port: 4000, hostname: "jitsi.nxdf.io" },
+  production: { ssl: true, port: 4000, hostname: "api.metaaxel.online" },
+  testserver: { ssl: true, port: 4000, hostname: "api.metaaxel.online" },
   development: { ssl: false, port: 4000, hostname: "localhost" },
 };
 const environment = process.env.NODE_ENV || "production";
@@ -28,8 +28,12 @@ if (config.ssl && environment === "production") {
   // Make sure these files are secured.
   httpServer = https.createServer(
     {
-      key: fs.readFileSync(`/usr/share/jitsi-meet/ssl/STAR.sj.go.kr.key`),
-      cert: fs.readFileSync(`/usr/share/jitsi-meet/ssl/STAR.sj.go.kr.crt`),
+      key: fs.readFileSync(
+        `/etc/letsencrypt/live/api.metaaxel.online/privkey.pem`
+      ),
+      cert: fs.readFileSync(
+        `/etc/letsencrypt/live/api.metaaxel.online/cert.pem`
+      ),
     },
 
     app
@@ -37,8 +41,12 @@ if (config.ssl && environment === "production") {
 } else if (config.ssl && environment === "testserver") {
   httpServer = https.createServer(
     {
-      key: fs.readFileSync(`/etc/letsencrypt/live/jitsi.nxdf.io/privkey.pem`),
-      cert: fs.readFileSync(`/etc/letsencrypt/live/jitsi.nxdf.io/cert.pem`),
+      key: fs.readFileSyncfs.readFileSync(
+        `/etc/letsencrypt/live/api.metaaxel.online/privkey.pem`
+      ),
+      cert: fs.readFileSync(
+        `/etc/letsencrypt/live/api.metaaxel.online/cert.pem`
+      ),
     },
 
     app
