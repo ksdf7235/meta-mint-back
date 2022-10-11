@@ -8,8 +8,8 @@ import http from "http";
 
 const configurations = {
   // Note: You may need sudo to run on port 443
-  production: { ssl: true, port: 4000, hostname: "api.metaaxel.online" },
-  testserver: { ssl: true, port: 4000, hostname: "api.metaaxel.online" },
+  production: { ssl: true, port: 4000, hostname: "mintapi.metaaxel.online" },
+  testserver: { ssl: true, port: 4000, hostname: "mintapi.metaaxel.online" },
   development: { ssl: false, port: 4000, hostname: "localhost" },
 };
 const environment = process.env.NODE_ENV || "production";
@@ -29,10 +29,10 @@ if (config.ssl && environment === "production") {
   httpServer = https.createServer(
     {
       key: fs.readFileSync(
-        `/etc/letsencrypt/live/api.metaaxel.online/privkey.pem`
+        `/etc/letsencrypt/live/mintapi.metaaxel.online/privkey.pem`
       ),
       cert: fs.readFileSync(
-        `/etc/letsencrypt/live/api.metaaxel.online/cert.pem`
+        `/etc/letsencrypt/live/mintapi.metaaxel.online/cert.pem`
       ),
     },
 
@@ -42,10 +42,10 @@ if (config.ssl && environment === "production") {
   httpServer = https.createServer(
     {
       key: fs.readFileSyncfs.readFileSync(
-        `/etc/letsencrypt/live/api.metaaxel.online/privkey.pem`
+        `/etc/letsencrypt/live/mintapi.metaaxel.online/privkey.pem`
       ),
       cert: fs.readFileSync(
-        `/etc/letsencrypt/live/api.metaaxel.online/cert.pem`
+        `/etc/letsencrypt/live/mintapi.metaaxel.online/cert.pem`
       ),
     },
 
