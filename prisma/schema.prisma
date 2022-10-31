@@ -20,3 +20,30 @@ model metawhitelist {
   discord_username String?
   twitter_username String?
 }
+model bulkfail {
+  id Int @id @default(autoincrement()) 
+  discord_username String?
+  sol_address String @unique
+  nft_amount Int?
+}
+model testbulk {
+  id Int @id @default(autoincrement()) 
+  discord_username String?
+  sol_address String @unique
+  nft_amount Int?
+}
+
+model Wallet {
+  id Int @id @default(autoincrement())
+  publicKey String @unique
+  NFTs NFT[]
+}
+model NFT {
+  id Int @id @default(autoincrement()) 
+  wallet Wallet  @relation(fields: [walletId], references: [id])
+  walletId    Int
+  sol_address String @unique
+  nft_amount Int?
+}
+
+
