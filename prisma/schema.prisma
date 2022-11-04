@@ -33,15 +33,22 @@ model testbulk {
   nft_amount Int?
 }
 
-model Wallet {
+model wallet {
   id Int @id @default(autoincrement())
   publicKey String @unique
-  NFTs NFT[]
+  NFTs nft[] 
 }
-model NFT {
+model nft {
   id Int @id @default(autoincrement()) 
-  wallet Wallet  @relation(fields: [walletId], references: [id])
+  wallet wallet  @relation(fields: [walletId], references: [id])
   walletId    Int
+  sol_address String @unique
+  nft_amount Int?
+}
+
+
+model faildata {
+  id Int @id @default(autoincrement())
   sol_address String @unique
   nft_amount Int?
 }
